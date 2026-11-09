@@ -1,0 +1,254 @@
+.github-section {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(160deg, rgba(139, 92, 246, 0.045), transparent 60%);
+}
+
+.github-section-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 1.8rem;
+  gap: 1.5rem;
+}
+
+.github-section-heading h2 {
+  margin: 0;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  font-weight: 600;
+  letter-spacing: -0.07em;
+  line-height: 1;
+}
+
+.github-section-heading h2 span {
+  color: var(--text-muted);
+}
+
+.github-profile-link {
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  gap: 0.45rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.6rem 0.9rem;
+  color: var(--text-primary);
+  background: var(--surface);
+  font-size: 0.76rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.github-profile-link:hover {
+  border-color: rgba(167, 139, 250, 0.55);
+}
+
+.github-profile-link svg {
+  width: 15px;
+  height: 15px;
+}
+
+.github-stats {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.github-stats > div {
+  display: flex;
+  align-items: baseline;
+  gap: 0.45rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.55rem 0.8rem;
+  background: var(--surface);
+}
+
+.github-stats strong {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.1rem;
+}
+
+.github-stats span,
+.github-stats > p {
+  color: var(--text-muted);
+  font-size: 0.7rem;
+}
+
+.github-stats > p {
+  margin: 0 0 0 auto;
+}
+
+.github-repo-grid,
+.github-loading-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.github-repo-card,
+.github-skeleton {
+  display: flex;
+  min-height: 180px;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 1.25rem;
+  background: var(--surface);
+  transition: transform 200ms ease, border-color 200ms ease, background 200ms ease;
+}
+
+a.github-repo-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(167, 139, 250, 0.5);
+  background: var(--surface-strong);
+}
+
+.github-repo-top {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--text-muted);
+  font-size: 0.68rem;
+}
+
+.github-repo-top svg {
+  width: 15px;
+  height: 15px;
+}
+
+.github-repo-language {
+  overflow: hidden;
+  max-width: 70%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.github-repo-card > strong {
+  margin-top: 1.2rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.08rem;
+}
+
+.github-repo-card > p {
+  display: -webkit-box;
+  overflow: hidden;
+  margin: 0.45rem 0 0.9rem;
+  color: var(--text-muted);
+  font-size: 0.76rem;
+  line-height: 1.55;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.github-repo-stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: auto;
+  color: var(--text-muted);
+  font-size: 0.7rem;
+}
+
+.github-repo-stars svg {
+  width: 13px;
+  height: 13px;
+  color: #eabf6c;
+}
+
+.github-repo-fallback > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: auto;
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.github-repo-fallback > a svg {
+  width: 14px;
+  height: 14px;
+}
+
+.github-fallback > p {
+  margin: 0 0 1rem;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.github-skeleton {
+  gap: 0.8rem;
+}
+
+.github-skeleton span {
+  display: block;
+  width: 55%;
+  height: 10px;
+  border-radius: 8px;
+  animation: skeleton-shimmer 1.35s ease-in-out infinite;
+  background: linear-gradient(90deg, var(--surface-strong), rgba(167, 139, 250, 0.15), var(--surface-strong));
+  background-size: 200% 100%;
+}
+
+.github-skeleton span:nth-child(2) {
+  width: 90%;
+  margin-top: 1rem;
+}
+
+.github-skeleton span:nth-child(3) {
+  width: 70%;
+}
+
+@keyframes skeleton-shimmer {
+  to { background-position: -200% 0; }
+}
+
+@media (max-width: 800px) {
+  .github-repo-grid,
+  .github-loading-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .github-repo-grid > :last-child:nth-child(odd) {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 540px) {
+  .github-section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .github-repo-grid,
+  .github-loading-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .github-repo-grid > :last-child:nth-child(odd) {
+    grid-column: auto;
+  }
+
+  .github-stats {
+    flex-wrap: wrap;
+  }
+
+  .github-stats > p {
+    flex: 1 0 100%;
+    margin: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .github-repo-card,
+  .github-skeleton span {
+    animation: none;
+    transition: none;
+  }
+}
